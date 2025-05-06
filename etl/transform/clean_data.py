@@ -74,6 +74,6 @@ raw_data.to_csv("C:/myproject/ircantec/data/processed/cleaned_data.csv", index=F
 file_path = "C:/myproject/ircantec/data/processed/cleaned_data.csv"
 
 if os.path.exists(file_path):
-    print("✅ Fichier trouvé :", file_path)
+    print("✅ Fichier persisté avec succès :", file_path)
 else:
     print("❌ Fichier non trouvé.")
