@@ -1,7 +1,5 @@
 import pandas as pd
 
-df = pd.read_csv("C:/myproject/ircantec/data/raw/raw_ircantec.csv", sep=";")
-
 
 def extract():
     # Read the dataset into memory

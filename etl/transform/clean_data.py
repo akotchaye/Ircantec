@@ -1,10 +1,15 @@
+import pandas as pd
+import os
+
+raw_data = pd.read_csv("C:/myproject/ircantec/data/raw/raw_ircantec.csv", sep=";")
+
 # Convert effectif_cotisants into int
 raw_data["effectif_cotisants"] = raw_data["effectif_cotisants"].astype("int")
 
 # Verify that effectif_cotisants is now an integer
 assert raw_data["effectif_cotisants"].dtype == "int"
 
-# Convert famille_d_employeurs into str
+# Convert famille_d_employeurs into string
 raw_data["famille_d_employeurs"] = raw_data["famille_d_employeurs"].astype("string")
 
 # Verify that famille_d_employeurs is now a string
@@ -60,3 +65,15 @@ raw_data["matricule"] = raw_data["matricule"].str.replace("contractuel", "7514")
 raw_data["matricule"] = raw_data["matricule"].str.replace("hospitalier", "1021")
 raw_data["matricule"] = raw_data["matricule"].str.replace("autre", "45687")
 raw_data["matricule"] = raw_data["matricule"].astype("int")
+
+# save the cleaned file as cleaned_data.csv in the processes directory
+raw_data.to_csv("C:/myproject/ircantec/data/processed/cleaned_data.csv", index=False)
+
+# Verify the persistance
+
+file_path = "C:/myproject/ircantec/data/processed/cleaned_data.csv"
+
+if os.path.exists(file_path):
+    print("✅ Fichier trouvé :", file_path)
+else:
+    print("❌ Fichier non trouvé.")
