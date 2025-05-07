@@ -26,5 +26,4 @@ def load(data, file_path):
             "DataFrame shape is not consistent before and after loading. Take a closer look!"
         )
 
-
-# tester  et corriger!!!!
+#corriger la fontion!!!!
