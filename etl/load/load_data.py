@@ -13,7 +13,7 @@ def load(data, file_path):
         "C:/myproject/ircantec/data/raw/raw_ircantec.csv", sep=";"
     )
 
-    print("The loaded DataFrame has been read from mysql for validation\n")
+    print("The loaded DataFrame has been read from the directory for validation\n")
 
     try:
         assert data.shape == loaded_dataframe.shape
@@ -26,4 +26,5 @@ def load(data, file_path):
             "DataFrame shape is not consistent before and after loading. Take a closer look!"
         )
 
-#corriger la fontion!!!!
+
+

@@ -1,3 +1,4 @@
+import logging
 import pandas as pd
 
 
@@ -16,7 +17,8 @@ def extract():
     print(data.dtypes)
 
     # Print a message before returning the DataFrame
-    print(
+    logging.info(
         "\nTo view the DataFrame extracted from 'raw directory', display the value returned by this function!\n\n"
     )
     return data
+
