@@ -1,0 +1,5 @@
+scripts/
+├── test_db_connection.py     # Teste si la base est joignable
+├── sample_data_preview.py    # Affiche un aperçu des données
+├── export_to_excel.py        # Convertit un CSV en Excel
+├── clean_empty_files.py      # Supprime les fichiers vides dans /data
