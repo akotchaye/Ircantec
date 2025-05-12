@@ -19,7 +19,7 @@ def load(data, file_path):
     try:
         assert data.shape == loaded_dataframe.shape
         logging.info(
-            "Success! The data in the table have successfully been loaded and validated"
+            "Success! The data have successfully been loaded and validated"
         )
 
     except AssertionError:

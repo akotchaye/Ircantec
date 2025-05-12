@@ -1,8 +1,45 @@
 # import the necessary modules
+import logging
 from etl.load import load
-from etl.extract.extract import extract
-from etl.transform.transform import transform
+from etl.extract import extract
+from etl.transform import transform
+from etl.clean import clean
 
-raw_data = extract()  # Extract the data from the raw directory
-cleaned_data = transform(raw_data)  # Transform the data
-load()
+
+# Configuration des logs
+logging.basicConfig(
+    filename="logs/etl.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    filemode="w",  # ou "a" pour ajouter
+)
+
+
+def run_etl():
+    logging.info("DÉBUT DU PIPELINE ETL")
+
+    try:
+        # Extraction
+        logging.info("Extraction du fichier brut")
+        df_raw = extract("C:/myproject/ircantec/data/raw/raw_ircantec.csv", sep=";")
+
+        # Nettoyage
+        logging.info("Nettoyage du fichier brut")
+        df_cleaned = clean(df_raw)
+
+        # Transformation
+        logging.info("Transformation du fichier nettoyé")
+        df_transfomed = transform(df_cleaned)
+
+        # Chargement
+        logging.info("Chargement du fichier transformé")
+        load(df_transfomed, "C:/myproject/ircantec/data/processed/cleaned_ircantec.csv")
+
+        logging.info("PIPELINE ETL TERMINÉ AVEC SUCCÈS")
+    except Exception as e:
+        logging.error(f"Erreur dans le pipeline ETL : {e}")
+        raise
+
+
+if __name__ == "__main__":
+    run_etl()
