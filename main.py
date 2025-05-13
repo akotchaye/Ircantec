@@ -16,16 +16,18 @@ logging.basicConfig(
 
 
 def run_etl():
-    logging.info("DÉBUT DU PIPELINE ETL")
+    logging.info("ETL has started")
 
     try:
         # Extraction
-        logging.info("Extraction du fichier brut")
-        df_raw = extract("C:/myproject/ircantec/data/raw/raw_ircantec.csv", sep=";")
+        logging.info("Extraction of the raw file")
+        df_raw = extract("C:/myproject/ircantec/data/raw/raw_ircantec.csv")
 
         # Nettoyage
         logging.info("Nettoyage du fichier brut")
-        df_cleaned = clean(df_raw)
+        df_cleaned = clean(
+            df_raw, "C:/myproject/ircantec/data/processed/cleaned_ircantec.csv"
+        )
 
         # Transformation
         logging.info("Transformation du fichier nettoyé")
@@ -33,7 +35,7 @@ def run_etl():
 
         # Chargement
         logging.info("Chargement du fichier transformé")
-        load(df_transfomed, "C:/myproject/ircantec/data/processed/cleaned_ircantec.csv")
+        load(df_transfomed, "C:/myproject/ircantec/data/processed/final_ircantec.csv")
 
         logging.info("PIPELINE ETL TERMINÉ AVEC SUCCÈS")
     except Exception as e:

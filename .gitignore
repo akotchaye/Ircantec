@@ -1,0 +1,44 @@
+#  Python cache & compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Configuration ou mots de passe (exemple)
+.env
+*.env
+config.yaml
+
+# Dossiers de données (optionnel selon ton usage)
+data/raw/
+data/processed/
+data/external/
+
+# Fichiers générés ou temporaires
+*.csv
+*.tsv
+*.xlsx
+*.parquet
+*.feather
+*.json
+*.log
+
+# Environnement virtuel
+.venv/
+env/
+venv/
+
+# IDEs (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Notebooks Jupyter checkpoint
+.ipynb_checkpoints/
+
+# Pipenv & Poetry
+Pipfile.lock
+poetry.lock
