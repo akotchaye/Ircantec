@@ -7,7 +7,7 @@ import os
 def clean(raw_data, file_path):
     # Check if the DataFrame is empty
     if raw_data.empty:
-        logging.info("The DataFrame is empty. Please check the input data.")
+        logging.error("The DataFrame is empty. Please check the input data.")
         return None
     # Convert effectif_cotisants into int
     raw_data["effectif_cotisants"] = raw_data["effectif_cotisants"].astype("int")

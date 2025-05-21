@@ -7,5 +7,5 @@ Description du fichier:
 Effectifs de cotisants à l’IRCANTEC, par employeurs (csv)
 
 stack :
-vscode 
+vscode et 
 python 3

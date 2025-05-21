@@ -24,22 +24,22 @@ def run_etl():
         df_raw = extract("C:/myproject/ircantec/data/raw/raw_ircantec.csv")
 
         # Nettoyage
-        logging.info("Nettoyage du fichier brut")
+        logging.info("data cleanning")
         df_cleaned = clean(
             df_raw, "C:/myproject/ircantec/data/processed/cleaned_ircantec.csv"
         )
 
         # Transformation
-        logging.info("Transformation du fichier nettoyé")
+        logging.info("data transformation")
         df_transfomed = transform(df_cleaned)
 
         # Chargement
-        logging.info("Chargement du fichier transformé")
+        logging.info("data loading")
         load(df_transfomed, "C:/myproject/ircantec/data/processed/final_ircantec.csv")
 
-        logging.info("PIPELINE ETL TERMINÉ AVEC SUCCÈS")
+        logging.info("pipeline executed with success")
     except Exception as e:
-        logging.error(f"Erreur dans le pipeline ETL : {e}")
+        logging.error(f"error while executing the ETL : {e}")
         raise
 
 
